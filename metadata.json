@@ -1,0 +1,10 @@
+{
+  "name": "FEMETE AIR LOGBOOK",
+  "description": "Libro de Vuelo Oficial RPAS / Drones para pilotos y operadores en España y Canarias (EASA / AESA). Colaborador Técnico Oficial: ALISIOS DRON.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

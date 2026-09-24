@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #005596;
+    --color-primary-dark: #1a80e6;
+    --color-secondary: #f59e0b;
+    --color-secondary-dark: #fbbf24;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
+  }
+
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Support for iOS & Android safe areas in Capacitor */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Tactical radar grid in Light and Dark modes */
+.radar-grid-light {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 85, 150, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 85, 150, 0.04) 1px, transparent 1px);
+}
+
+.radar-grid-dark {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+}
+
+/* Subtle glow effects */
+.glow-aviation-blue {
+  box-shadow: 0 0 16px rgba(26, 128, 230, 0.4);
+}
+
+.glow-aviation-amber {
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+}
+
+/* Leaflet map container custom styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  z-index: 10 !important;
+  font-family: 'Inter', sans-serif;
+}
+
+.leaflet-control-attribution {
+  font-size: 9px !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  color: #94a3b8 !important;
+  padding: 1px 4px !important;
+  border-radius: 4px;
+}
+.leaflet-control-attribution a {
+  color: #38bdf8 !important;
+}
+
+/* Hide scrollbar while preserving scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

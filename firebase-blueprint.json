@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil del piloto y operador AESA vinculado a su cuenta de Google",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "email": { "type": "string", "maxLength": 150 },
+        "dni": { "type": "string", "maxLength": 30 },
+        "aesaOperatorId": { "type": "string", "maxLength": 50 },
+        "trainingEntity": { "type": "string", "maxLength": 100 },
+        "baseLocation": { "type": "string", "maxLength": 100 },
+        "activeRole": { "type": "string", "maxLength": 50 },
+        "avatarUrl": { "type": "string", "maxLength": 500 },
+        "isSeniorPilot": { "type": "boolean" },
+        "previousAccreditedHours": { "type": "number" },
+        "previousAccreditedMinutes": { "type": "number" },
+        "previousAccreditationEntity": { "type": "string", "maxLength": 150 },
+        "previousAccreditationDoc": { "type": "string", "maxLength": 150 },
+        "updatedAt": { "type": "string", "maxLength": 60 }
+      },
+      "required": ["uid", "name", "email"]
+    },
+    "FlightRecord": {
+      "title": "FlightRecord",
+      "description": "Registro oficial de vuelo de aeronave no tripulada (UAS/RPAS)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "date": { "type": "string", "maxLength": 30 },
+        "droneId": { "type": "string", "maxLength": 80 },
+        "droneModel": { "type": "string", "maxLength": 100 },
+        "droneRegistration": { "type": "string", "maxLength": 60 },
+        "locationName": { "type": "string", "maxLength": 200 },
+        "municipality": { "type": "string", "maxLength": 100 },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "scenario": { "type": "string", "maxLength": 60 },
+        "purpose": { "type": "string", "maxLength": 200 },
+        "timeStart": { "type": "string", "maxLength": 10 },
+        "timeEnd": { "type": "string", "maxLength": 10 },
+        "durationMinutes": { "type": "number" },
+        "batStart": { "type": "number" },
+        "batEnd": { "type": "number" },
+        "batConsumed": { "type": "number" },
+        "batteryPackId": { "type": "string", "maxLength": 80 },
+        "windKmH": { "type": "number" },
+        "windDir": { "type": "string", "maxLength": 20 },
+        "skyCondition": { "type": "string", "maxLength": 60 },
+        "tempC": { "type": "number" },
+        "maxAglMeters": { "type": "number" },
+        "distanceKm": { "type": "number" },
+        "notes": { "type": "string", "maxLength": 2000 },
+        "pilotName": { "type": "string", "maxLength": 150 },
+        "pilotLicense": { "type": "string", "maxLength": 80 },
+        "verifiedAesa": { "type": "boolean" },
+        "officialHash": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "maxLength": 60 }
+      },
+      "required": ["id", "userId", "date", "droneModel", "durationMinutes"]
+    }
+  },
+  "firestore": {
+    "/usuarios/{userId}": {
+      "schema": "UserProfile",
+      "description": "Documento con el perfil del usuario piloto"
+    },
+    "/usuarios/{userId}/vuelos/{flightId}": {
+      "schema": "FlightRecord",
+      "description": "Colección de vuelos de un usuario piloto específico"
+    }
+  }
+}
